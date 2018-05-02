@@ -1,0 +1,153 @@
+body {
+    background-color: #F5F5F5;
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+}
+#content {
+    width: 750px;
+    margin: 0 auto;
+}
+
+header {
+    font-size: 80px;
+    font-weight: lighter;
+    text-align: center;
+    color: #EAD7D8;
+}
+
+#card-box {
+    width: 450px;
+    margin: 0px auto;
+    position: relative;
+
+}
+
+#card-box input {
+    /* デフォルトのスタイルを消す */
+    /* margin: 0; */
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* スタイルを適用 */
+    width: 410px;
+    height: 60px;
+    background-color: white;
+    font-size: 25px;
+}
+
+#card-box-generator {
+    position: relative;
+    height: 60px;
+}
+
+#card-box-generator #switch-all-checkbox {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 100%;
+}
+#card-box-generator #switch-all-checkbox[data-enabled="true"] {
+    background-color: pink;
+}
+#card-box-generator #switch-all-checkbox[data-enabled="false"] {
+    background-color: white;
+}
+
+#card-box-generator .card-generate-textarea {
+    position: absolute;
+    left: 40px;
+    width: 710px;
+    height: 100%;
+    
+}
+
+.card {
+    background-color: white;
+    height: 60px;
+    position: relative;
+}
+
+.card .card-checkbox {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: inherit;
+}
+
+.card[data-completed="true"] .card-checkbox{
+    background-color: lightgreen;
+}
+.card[data-completed="true"] .card-text{
+    text-decoration: line-through;
+    color: lightslategray;
+}
+.card[data-completed="false"] .card-text {
+    text-decoration: none;
+}
+
+.card .card-text {
+    position: absolute;
+    left: 40px;
+    width: 370px;
+    height: 100%;
+    padding: 20px 0px;
+    word-wrap: break-word;
+}
+
+.card .card-text-edit {
+    position: absolute;
+    left: 40px;
+    width: 410px;
+    height: 100%;
+    background-color: black;
+}
+
+.card .card-delete-area {
+    position: absolute;
+    left: 410px;
+    width: 40px;
+    height: 100%;
+    color: red;
+}
+
+#card-box-footer {
+    background-color: white;
+    height: 20px;
+    position: relative;
+    font-size: 14px;
+
+}
+.card-left-num {
+    position: absolute;
+    left: 0;
+    width: 100px;
+}
+.card-display-switch {
+    position: absolute;
+    left: 100px;
+    width: 220px;
+    text-align: center;
+}
+.card-clear-completed {
+    position: absolute;
+    left: 320px;
+    width: 130px;
+}
+
+/* placeholderの色設定 */
+::-webkit-input-placeholder { color: #EDEDED; font-style: italic;} /* Chrome */
+::-moz-placeholder          { color: #EDEDED; font-style: italic;} /* Firefox */
+::-ms-input-placeholder     { color: #EDEDED; font-style: italic;} /* IE */
+
+
+.btn-filter-list[data-selected="true"] {
+    color: pink;
+}
+.btn-filter-list[data-selected="false"] {
+
+}

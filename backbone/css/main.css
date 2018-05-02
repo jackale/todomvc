@@ -1,0 +1,210 @@
+body {
+    background-color: #F5F5F5;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
+#content {
+    width: 750px;
+    margin: 0 auto;
+}
+
+header {
+    font-size: 100px;
+    font-weight: lighter;
+    text-align: center;
+    color: #EAD7D8;
+}
+
+#card-box {
+    width: 550px;
+    margin: 0px auto;
+    position: relative;
+
+}
+
+#card-box input {
+    /* デフォルトのスタイルを消す */
+    /* margin: 0; */
+	padding: 0;
+
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* スタイルを適用 */
+    background-color: white;
+	font-size: 25px;
+	font-weight: 300;
+}
+
+#card-box-list {
+	filter: drop-shadow(10px 10px 10px #EBEBEB);
+}
+#card-box-generator {
+    position: relative;
+	height: 60px;
+	filter: drop-shadow(10px 10px 10px #EBEBEB);
+}
+
+#card-box-generator #switch-all-checkbox {
+    position: absolute;
+    left: 0;
+    width: 10%;
+	height: 100%;
+	background-color: white;
+}
+#card-box-generator #switch-all-checkbox[data-action="complete"] {
+	background-size: 20px;
+	background-position: 20px 30px;
+	background-repeat: no-repeat;
+	background-image: url('../img/complete.png');
+}
+#card-box-generator #switch-all-checkbox[data-action="uncomplete"] {
+	background-size: 20px;
+	background-position: 20px 30px;
+	background-repeat: no-repeat;
+	background-image: url('../img/uncomplete.png');
+}
+
+#card-box-generator .card-generate-textarea {
+    position: absolute;
+    left: 10%;
+    width: 90%;
+    height: 100%;
+}
+#card-box-generator .card-generate-textarea input {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background-color: white;
+    height: 60px;
+	position: relative;
+	border-top: 1px solid #EBEBEB;
+	cursor: default;
+}
+
+.card .card-checkbox {
+    position: absolute;
+    left: 0;
+    width: 10%;
+	height: inherit;
+	background-image: url('../img/check_waku.png');
+	background-size: 40px;
+	background-position: 5px 10px;
+	background-repeat: no-repeat;
+}
+
+.card[data-completed="true"] .card-checkbox{
+	/* background-color: lightgreen; */
+	background-image: url('../img/check.png');
+
+}
+.card[data-completed="true"] .card-text{
+    text-decoration: line-through;
+    color: lightslategray;
+}
+.card[data-completed="false"] .card-text {
+    text-decoration: none;
+}
+
+.card .card-text, .card-text-edit{
+    position: absolute;
+    left: 10%;
+    width: 75%;
+    padding: 20px 0px;
+    word-wrap: break-word;
+}
+
+
+.card .card-text-edit{
+	width: 90%
+}
+.card .card-text-edit input {
+	width: 100%;
+	height: 100%;
+}
+
+.card .card-delete-area {
+    position: absolute;
+    left: 85%;
+    width: 15%;
+    height: 100%;
+	color: #EAD7D8;
+	padding-top: 10px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.card .card-delete-area:hover {
+	color: rgb(204, 171, 172);
+}
+
+#card-box-footer {
+    background-color: white;
+    height: 40px;
+    position: relative;
+	font-size: 13px;
+	border-top: 1px solid #EBEBEB;
+	color: #7F7F7F;
+}
+.card-left-num {
+    position: absolute;
+    left: 3%;
+	width: 20%;
+	padding-top: 10px;
+}
+.card-display-switch {
+    position: absolute;
+	left: 23%;
+	padding-top: 10px;
+    width: 54%;
+    text-align: center;
+}
+.card-clear-completed {
+    position: absolute;
+	left: 77%;
+	padding-top: 10px;
+	width: 130px;
+}
+
+/* placeholderの色設定 */
+::-webkit-input-placeholder { color: #EDEDED; font-style: italic;} /* Chrome */
+::-moz-placeholder          { color: #EDEDED; font-style: italic;} /* Firefox */
+::-ms-input-placeholder     { color: #EDEDED; font-style: italic;} /* IE */
+
+
+.btn-filter-list {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+	appearance: none;
+	color: #7F7F7F;
+	margin-left: 10px;
+	cursor: pointer;
+	font-size: 12px;
+	height: 25px;
+}
+
+.btn-filter-list:hover {
+	border: 1px solid rgb(235, 224, 225);
+}
+
+.btn-filter-list[data-selected="true"] {
+    border: 1px solid #F0D5D6;
+}
+
+#clear-all-completed {
+	color: #7F7F7F;
+	text-decoration: none;
+}
+#clear-all-completed:hover {
+	text-decoration: underline;
+}
