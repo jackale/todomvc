@@ -1,4 +1,6 @@
 $(() => {
+	let gFilterType = 'all';
+
 	const EVENT = {
 		'BIRTH_TASK': 0,
 		'SWITCH_ALL_TASK': 1,
@@ -57,7 +59,6 @@ $(() => {
 		}
 
 		_set(id, data) {
-			console.log(id, data);
 
 			this._data[id] = data;
 		}
@@ -91,7 +92,6 @@ $(() => {
 			'delete': remove
 		}
 
-		console.log("sync : " + method);
 
 		function read(model) {
 			return StorageManager.find(model.id);
@@ -148,7 +148,6 @@ $(() => {
 			_.each(list, (model, id) => {
 				this.add(model);
 			});
-			console.log(this.length + ' model is added.');
 		}
 	});
 
@@ -259,7 +258,17 @@ $(() => {
 		},
 		changeIsCompleted: function () {
 			const isCompleted = this.model.get('isCompleted');
-			this.$el.find('.card').attr('data-completed', isCompleted);
+			const $card = this.$el.find('.card');
+			$card.attr('data-completed', isCompleted);
+			if (	gFilterType == 'all'
+				|| (gFilterType == 'active' && !isCompleted)
+				|| (gFilterType == 'completed' && isCompleted)
+			) {
+				$card.show();
+			} else {
+				$card.hide();
+			}
+
 		},
 		changeEditable: function () {
 			this.$el.find('.card-text').hide();
@@ -330,6 +339,9 @@ $(() => {
 			newTaskView.on(EVENT.TRIGGER_CHECKBOX, function (model) {
 				model.toggleCompleted();
 			});
+			if (gFilterType == 'completed') {
+				newTaskView.$el.hide();
+			}
 			this.$el.append(newTaskView.$el);
 		}
 	});
@@ -352,6 +364,7 @@ $(() => {
 		},
 		filterExec: function (e) {
 			const type = $(e.target).attr('data-type');
+			gFilterType = type;
 			this.$el.find('.btn-filter-list').attr('data-selected', false);
 			this.$el.find('.btn-filter-list[data-type="'+type+'"]').attr('data-selected', true);
 			this.trigger(EVENT.FILTER_LIST, type);
